@@ -1,0 +1,38 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css\quest.css">
+		<title>Questionnaire</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+
+	<body>
+	
+		Session :  <?php echo $_SESSION['nom']; ?> !<br />
+		Cookie : <?php echo $_COOKIE['nom']; ?> !
+	
+		<fieldset id=questions></fieldset>
+
+		<button>Afficher un indice</button>
+
+		<h3>Nombre de points</h3>
+		<div id=points>
+		</div>
+
+		<h3>Indices</h3>
+		<div id=indice>
+		</div>
+
+		<button>Score</button>
+		<br>
+		<form action="deconnexion.php" method="GET">
+		<input type="submit" value="Quitter"/> </form>
+	</body>
+
+</html>

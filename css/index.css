@@ -1,0 +1,28 @@
+h1
+{
+	color: #111;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+	text-align: center;
+}
+
+body
+{
+	background-image:url("../Image/Interro.png");
+	background-repeat: no-repeat;
+}
+
+div
+{
+	text-align: center;
+}
+
+img.displayed
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

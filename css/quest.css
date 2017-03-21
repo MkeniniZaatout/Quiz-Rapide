@@ -1,0 +1,93 @@
+#points, #indice, #score{
+	border : 1px solid gray ;
+	border-width : 2px;
+	height : 3em;
+	background-color:#FFFFF0;
+}
+
+#questions{
+	background-color:#FFFFF0;
+}
+
+body{
+	background-color:#F5DEB3;
+}
+
+h1{
+	text-align: center;
+	text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F
+}
+
+h3{
+	font-size: 32px;
+  text-shadow: -1px -1px #0c0, 1px 1px #060, -3px 0 4px #000;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #090;
+  padding:16px;
+  font-weight:lighter;
+  -moz-box-shadow: 2px 2px 6px #888;  
+  -webkit-box-shadow: 2px 2px 6px #888;  
+  box-shadow:2px 2px 6px #888;  
+  text-align:center;
+  display:block;
+  margin:16px;
+  background-image:url(../Image/background-h1-wood.jpg);
+}
+
+label.question{
+	margin: 1em 0 0.75em;
+	padding: 0 0 5px 0;
+	color: #6B5344;
+	font-weight: normal;
+	position: relative;
+	text-shadow: 0 2px 0 rgba(255,255,255,0.5);
+	font-size: 36px;
+	line-height: 40px;
+	font-family: 'Carrois Gothic', sans-serif;
+}
+
+label.score{
+	margin: 1em 0 0.5em 0;
+	font-weight: 100;
+	text-transform: uppercase;
+	color: brown;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 12px;
+	line-height: 54px;
+	text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+button{
+	background-color:#FCDEDE;
+}
+
+input:hover{
+ background-color:#FCDEDE;
+ }
+input:active{
+ background-color:#FCDEDE;
+ box-shadow:1px 1px 1px #D83F3D inset;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

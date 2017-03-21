@@ -1,0 +1,4 @@
+AuthUserFile D:/Systeme/Program Files/wamp/www/Projet/Prof.htpasswd
+AuthName "Accès protégé"
+AuthType Basic
+require valid-user

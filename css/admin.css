@@ -1,0 +1,42 @@
+body{
+    margin: 10px 0 ;
+    padding: 0 ;
+    text-align: left ;
+    font: 0.8em "Trebuchet MS", helvetica, sans-serif ;
+    background: #dea ;
+	background-image:url("../Image/Interro-admin.png");
+}
+
+div#conteneur{
+    width: 770px ;
+    margin: 0 auto ;
+    text-align: left ;
+    border: 2px solid #ab4 ;
+    background: #fff ;
+}
+
+h1{
+	text-align: center;
+	text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F
+}
+
+fieldset.ajout{
+	border:2px solid green;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+}
+
+fieldset.supression{
+	border:2px solid red;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+}
+
+fieldset.formulaire{
+	border:2px solid blue;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+}

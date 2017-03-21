@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="javascript/methode.js"></script>
+	<meta charset="utf-8">
+	<title>Creation du Questionnaire</title>		
+<style>
+body
+{
+    margin: 10px 0 ;
+    padding: 0 ;
+    text-align: center ;
+    font: 0.8em "Trebuchet MS", helvetica, sans-serif ;
+    background: #dea ;
+	background-image:url("Image/Interro-admin.png");
+}
+
+div#conteneur
+{
+    width: 770px ;
+    margin: 0 auto ;
+    text-align: left ;
+    border: 2px solid #ab4 ;
+    background: #fff ;
+
+
+.Choix {
+    height:10px;
+    width:10px;
+}
+</style>	
+	</head>
+
+	<body>	
+<div style="text-align:"left">
+<img src="Image/study-quiz-admin.png" class="imageGauche" alt="logo" /><img src="image/crayon.png" class="imageGauche" alt="logo" />
+</div>
+LPSIL IDSE Informatique Distribuée et Systèmes d'information d'Entreprise
+<fieldset>
+<legend><h1>Création du questionnaire </h1></legend>
+
+			
+			<h3 align = "left">Ajout :</h3>
+				<div id="ajoutTheme" align="center"><p>Etape 1 : Saisir un thème pour les questions : <input type=text id ="idThemeA" value="" onfocus="javascript:value=''"  />
+				<button id="recuperTheme">Ajouter un thème</button></div></p>
+
+				<p><div id=ajoutQuestion align="center">Etape 2 : Saisir une question <input type=text id=idQuestionAd value="" onfocus="javascript:value=''" /> son indice :<input type=text id=idIndice value="" onfocus="javascript:value=''" /> le nombre de réponse :<input classe="Choix" type="number" step="1" id="nbChoix" min="0" max="6"></div>
+				<button id ="recuperQuest">Ajouter une question</button></p>
+				<p><div id=ajoutReponse align="center">Etape 3 : Saisir une réponses<input type=text id=idReponseAd value="" onfocus="javascript:value=''"/> choisir : <input type="radio" name="Etat" value="1"> Juste <input type="radio" name="Etat" value="0"> Fausse<br><br>  et selectionner sa question:</div>
+				<button id ="recuperRep">Ajouter une reponse</button>				
+				
+				<div id="affichageSup">
+				<h3 align = "left">Suppression :</h3></div>
+				</div>
+				<div id=SupTeme align="center">Saisir un thème à supprimer : <input type=text id =idThemeD value="" onfocus="javascript:value=''"/>
+				<button id="recuperTheme2">Supprimer un thème</button></div>
+	</fieldset>
+	<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS Valide !" />
+    </a>
+	<a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="CSS Valide !" />
+	</p>
+       
+	</body>
+	<script>
+
+$(document).ready(function(){
+
+/////affichage des themes,Question,ReponseS
+ShowTheme("http://localhost/php/themeJson.php","id_theme","theme","#ajoutQuestion");
+ShowQuestion("http://localhost/php/questionJson.php","id_question","question","#ajoutReponse");
+
+//affichage des Questions , Reponse pour supression
+ShowQuestion("http://localhost/php/questionJson.php","id_question","question","#supQuestion");
+ShowReponse("http://localhost/php/reponseJson.php","id_choix","choix","#supReponse");
+/*********************************************************Recuperation du theme****************************************************************/
+//ajout dans la Bd
+GetTheme("#recuperTheme","idThemeA","Php/ajoutTheme.php");
+//suppression dans la Bd
+GetTheme("#recuperTheme2","idThemeD","supprimerT.php");
+
+/********************************************************Ajout de la question , de l'indice ***************************************************/
+//ici je veux récuperer l'id du opt selectionner dans la //liste: -> clé etranger theme pour la question , la question ,indice
+$("#recuperQuest").click(function (){
+	var elem = $("#cleET");
+	console.log(elem);
+	if (elem){
+		var idtheme = elem.find(":selected").val();
+		console.log(idtheme);	
+		}//fermeture du if
+	var nbChoix = $("#nbChoix").val();
+	var questionSaisie = $("#idQuestionAd").val();
+	var indiceSaisie = $("#idIndice").val();
+	var objQuestion = {id_theme: idtheme , questionSaisie: questionSaisie, indice: indiceSaisie, nbChoix: nbChoix };
+	GetObjet("Php/ajoutQuestion.php",objQuestion);
+});//fermeture de la fonction
+/**************************************************************Ajout de la reponse*************************************************************/
+/*
+AjoutRep("#recuperRep","#cleEQ","#idReponseAd");
+AjoutRep(idRecupRep,idCleE,idRepAd){
+}*/
+
+$("#recuperRep").click(function (){
+	var elem = $("#cleEQ");
+	console.log(elem);
+	if (elem){
+		var idquestion = elem.find(":selected").val();
+		console.log(idquestion);
+		}//fermeture du if
+	var reponseSaisie = $("#idReponseAd").val();
+	var etat = $('input[name=Etat]:checked').val();
+	var objReponse = {id_question: idquestion , reponseSaisie: reponseSaisie, etat: etat };
+	//alert(etat);
+	GetObjet("Php/ajoutReponse.php",objReponse);
+});//fermeture de la fonction
+	
+});//document.ready
+</script>
+</html>

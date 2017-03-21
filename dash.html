@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="refresh" content="10" />
+<title> Cipher </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<script>
+"use strict";
+function Affichage(){
+	$.getJSON("http://localhost/Projet/board.php", function(data){
+		for(var i in data){
+			$("#tab").append("<tr id="+i+">");
+			$("#"+i).append("<td>"+data[i]["nom"]+"</td>");
+			$("#"+i).append("<td>"+data[i]["score"]+"</td>");
+			$("#"+i).append("<td>"+data[i]["id_question"]+"</td>");
+			$("#tab").append("</tr>");
+		}
+	});
+}
+</script>
+</head>
+<body onload="Affichage();">
+<table id=tab>
+  <tr>
+    <th>Etudiant</th>
+    <th>Score</th>
+    <th>Numéro de question</th>
+  </tr>
+</table>
+</body>
+</html>

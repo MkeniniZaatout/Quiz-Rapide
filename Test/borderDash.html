@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta charset="utf-8" />
+
+<meta http-equiv="refresh" content="10" />
+<script>
+"use strict";
+var affichage = function()
+$.ajax({
+				type:"GET",
+				url:"http://localhost/Projet/board.php"
+			}).done(function(data){
+				console.log(data);
+				var board = JSON.parse(data);
+				for(var i in board){
+					$("#board").append("<tr><td>" + board[i].theme +"</td><td>" + board[i].question +"</td><td>" + board[i].nom +"</td><td>" + board[i].score +"</td></tr>");
+				}
+			});
+		 };
+</script>
+</head>
+
+<body onload="Questions();">
+
+<table id=board border="1" cellpadding="15">
+   <tr>
+      <th>Id</th>
+      <th>Nom</th>
+	  <th>Question</th>
+      <th>Score</th>
+   </tr>
+
+</table>
+<br>
+
+<form action="deconnexion.php" method="GET">
+		<input type="submit" value="Quitter"/> </form>
+</body>
+</html>
